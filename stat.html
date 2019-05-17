@@ -21,8 +21,8 @@
   <nav class="pink lighten-3" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo"><i class="large material-icons">wc</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="stat.html"><i class="material-icons left">favorite</i>Stat</a></li>
-        <li class="active"><a href="math.html"><i class="material-icons left">grade</i>Math</a></li>
+        <li class="active"><a href="stat.html"><i class="material-icons left">favorite</i>Stat</a></li>
+        <li><a href="math.html"><i class="material-icons left">grade</i>Math</a></li>
         <li><a class="dropdown-trigger" href="#" data-target="memorandom"><i class="material-icons left">delete_sweep</i>Memo<i class="material-icons right">arrow_drop_down</i></a></li>
         <li><a href="about.html"><i class="material-icons left">person</i>About</a></li>
       </ul>
@@ -38,7 +38,7 @@
   </nav>
   <div class="section" id="index-banner">
     <div class="container">
-      <h1 class="header center pink-text">Math</h1>
+      <h1 class="header center pink-text">Stat</h1>
     </div>
   </div>
 
@@ -49,58 +49,26 @@
       <!--   Icon Section   -->
       <div class="row">
         <div class="col s12 m9 l10">
-          <div id="introduction" class="section scrollspy">
-            <h3 class="header">上と下</h3>
-            <p>上極限と下極限を日本語で書き直す。なお、この二つは常に存在することは証明しない。</p>
-            <p>まず下極限から。とりあえずこのままだとよくわからないので定義の方に書き直す。
-                
-                $$\displaystyle  \liminf_{n \to \infty} A_{n} = \bigcup_{m \geq 1} \bigcap_{n \geq m} A_{n}$$
-                
-                書き直せた。
-                
-                $\displaystyle  \bigcup _{m \geq 1} \bigcap _{n \geq m} A _{n}$は、$\bigcap _{n \geq m} A _{n}$の和集合になる。
-                
-                $ \displaystyle  x \in \bigcup _{m \geq 1} \bigcap _{n \geq m} A _{n}$であるなら、どこかのmで$ x \in \bigcap _{n \geq m} A _{n}$となっていればよい。
-                
-                つまり、ある特定の(有限の)kが存在し$x \in \bigcap _{n \geq m} A _{n}$とできなければ、要素$x$は$ A _{n}$の下極限に含まれることができない。
-                
-                これは、$ \displaystyle  x \in \bigcup _{m \geq 1} \bigcap _{n \geq m} A _{n}$なら、その$k$より先の$ A _{m} ,(m \geq k)$について、常に$ x \in A _{m} ,(m \geq k)$となる事を意味する。
-                
-                みたいなのをなんとなくそれっぽく書くと、「(ある)有限個の$k$より先には、常に$ x \in A _{n}$が成立している」感が出てくる。書けた気がする。</p>
-                
-                <p>次に上極限、やはり同様によくわからないので定義に書き直す。
-                
-                $$\displaystyle  \limsup _{n \to \infty} A _{n} = \bigcap _{m \geq 1} \bigcup _{n \geq m} A _{n}$$
-                
-                書き直せた。
-
-                
-                $\displaystyle  \bigcap _{m \geq 1} \bigcup _{n \geq m} A _{n}$は、$ \bigcup _{n \geq m} A _{n}$の共通部分になる。
-                
-                $\displaystyle  x \in \bigcap _{m \geq 1} \bigcup _{n \geq m} A _{n}$であるなら、すべての$m$で$ x \in \bigcap _{n \geq m} A _{n}$となっていればよい。
-                
-                つまり、どのような$k$をとってきても、$x \in \bigcup _{n \geq m} A _{n}$とできなければ、要素$x$は$ A _{n}$の上極限に含まれることができない。
-                
-                これは、$\displaystyle  x \in \bigcap _{m \geq 1} \bigcup _{n \geq m} A _{n}$なら、どんなにkをめちゃくちゃ大きくとっても、それより先のどこかで$ x \in A _{k'} ,(k' \geq k)$となる$ k'$が存在することを意味する。
-                
-                みたいなのをなんとなくそれっぽく書いて、「無限（に大きくしてもOKな）なkより先にも、どこかで絶対に$ x \in A _{n}$が成立している」感が出てくる。</p>
-          </div>
-    
-          <div id="structure" class="section scrollspy">
-            <h3 class="header">単調増加列の極限</h3>
-            <p>Coming soon</p>
-          </div>
-    
-          <div id="initialization" class="section scrollspy">
-            <h3 class="header">単調減少列の極限</h3>
-            <p>Coming soon</p>
+          <div id="attseries" class="section scrollspy">
+            <h4 class="header">介入効果の種類</h3>
+            <h5>ATE：母集団全体にT=1する効果</h5>
+            <p>$$ E[ Y^{T=1} ]-E[ Y^{T=0} ] $$</p>
+            <h5>ATT：介入群にT=1する効果</h5>
+            <p>$$ E[ Y^{T=1} |T=1 ]-E[ Y^{T=0} |T=1 ] $$</p>
+            <p>counterfactualな項を書き換えて
+            $$\displaystyle  E[ Y^{T=1} |T=1 ]- \frac{E[Y^{T=0}] - P(T=0) E[Y^{T=0} | T=0] }{P(T=1)}  $$
+            </p>
+            
+            <h5>ATC：非介入群にT=1する効果</h5>
+            <p>$$ E[ Y^{T=1} |T=0 ]-E[ Y^{T=0} |T=0 ] $$</p>
+            <p>counterfactualな項を書き換えて
+            $$\displaystyle \frac{E[Y^{T=1}] - P(T=1) E[Y^{T=1} | T=1] }{P(T=0)} - E[Y^{T=0}|T=0] $$
+            </p>
           </div>
         </div>
         <div class="col hide-on-small-only m3 l2">
           <ul class="section table-of-contents">
-            <li><a href="#introduction">上極限と下極限</a></li>
-            <li><a href="#structure">単調増加列の極限</a></li>
-            <li><a href="#initialization">単調減少列の極限</a></li>
+            <li><a href="#attseries">介入効果の種類</a></li>
           </ul>
         </div>
       </div>
